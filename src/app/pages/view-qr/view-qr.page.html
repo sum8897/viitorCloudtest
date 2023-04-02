@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/scan-qr"></ion-back-button>
+    </ion-buttons>
+    <ion-title>View QR Code</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+  <div class="container">
+    <ion-button (click)="generate()">Generate Randor QR Code</ion-button>
+ <div *ngIf="generatedValue">
+  <ngx-qrcode value = "{{generatedValue}}" [elementType]="elementType">
+  </ngx-qrcode>
+  <p>This is QR Code:<span class="qrCode">{{generatedValue}}</span></p>
+  <ion-button (click)="selectActionSheet()">Share QR Code</ion-button>
+ </div>
+</div>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-content>
+  <div class="container">
+    <h3>ViitorCloud Login Form</h3>
+    <form #f="ngForm" novalidate (ngSubmit)="onSubmit(f)">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" name="email" required [(ngModel)]="data.email" #emailCtrl="ngModel" email></ion-input>
+        </ion-item>
+        <div *ngIf="!emailCtrl.valid && emailCtrl.touched" class="text-danger">
+          <ion-text color="danger">Please Enter Valid Email_Id</ion-text>
+        </div>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" name="password" required [(ngModel)]="data.password" #passCtrl="ngModel" password>
+          </ion-input>
+        </ion-item>
+        <div *ngIf="!passCtrl.valid && passCtrl.touched" class="text-danger">
+          <ion-text color="danger">Please Enter Password</ion-text>
+        </div>
+        <ion-item class="ion-float-right" lines="none">
+          <ion-button type="submit" size="small" [disabled]="!f.valid">Submit</ion-button>
+        </ion-item>
+      </ion-list>
+    </form>
+
+  </div>
+</ion-content>
